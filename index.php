@@ -1,5 +1,5 @@
 <?php 
-//include functions.php file
+    include('includes/functions.php');
 ?>
 <!doctype html>
 
@@ -17,9 +17,9 @@
 <body>
 
 <?php 
-//include header.php
+    include('includes/header.php');
 ?>
-    <main id="main-content">
+    <main id="main_content">
         <section id="todo-display">
             <button id="display_refresh" type="button" class="glyphicon glyphicon-refresh"></button>
             <div class="display_container"></div>
@@ -35,7 +35,7 @@
         
     </main>
 <?php 
-//include footer.php
+    include('includes/footer.php');
 ?>
 </body>
 </html>

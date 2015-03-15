@@ -1,4 +1,10 @@
-$('document').ready(function(){  //when the document is ready
+$('document').ready(function(){
+    var main_content = $('#main_content');
+    
+    
+
+    
+    //when the document is ready
     $("#save_task").click(function(){  //add click handler to save_task button
 
         var todoadd = $("#todo-add");
@@ -15,15 +21,22 @@ details:todoadd.find("textarea[name=details]").val(),
             cache: false,//do not let the response be cached
             method: 'POST', //use POST to send it
             success: function(data){ //and do something when the response comes back
-                //success is achieved!
+               console.log(data); //success is achieved!
+              
+                $("#display_refresh").click();
+            
             }
         }); 
         
             
-    });
+    }); //end of click handler
+    
+ //end of ready function
+    
+    
     $("#display_refresh").click(function(){  //add a click handler to our data display button
 
-        $.ajax(
+        $.ajax( 
         {
             url: 'actions/get.php',  //get our data from the get.php file
             dataType: 'json', //expect json data back from get.php
@@ -33,9 +46,44 @@ details:todoadd.find("textarea[name=details]").val(),
                 if(data.success)
                 {
                     $("#todo-display > .display_container").html(data.html); //take the html object of the data object, and put it into the display container
+                    
                 }
             }
         });
             
     });
+    
+    $("#display_refresh").click();
+    
+        main_content.on('click', '#btn_delete', function(){
+    var listName =$(this).parent().attr('data-id');
+        console.log(listName);
+    var dataID = {
+            dataid: listName   
+        }
+    
+        $.ajax({
+           
+            url: 'actions/remove.php',
+            data: dataID,
+            dataType: 'json',
+            cache: false, 
+            method: 'POST',
+            success: function(data){
+                console.log(data);
+                console.log("Deleted!");
+                $("#display_refresh").click();
+                
+            },
+            failure: function(){
+             alert("Didnt receive anything back");
+            }
+        });
+        
+     alert("im in the call");
+    });
+     $("#display_refresh").click();
+    
 });
+    
+

@@ -56,5 +56,24 @@ body{
     width: 60%;
     display: inline-block;
 }
-#display_refresh{
+#display_container{
+    position: relative;
+}
+
+#container_div {
+    border: 2px solid rgb(56, 97, 157);
+    padding-left: 10px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.title {
+    font-weight: bold;
+}
+.btn {
+    position: relative;
+    float: right;
+    top: -45px;
+    right: 10px;
+   
 }

@@ -1,3 +1,3 @@
     <footer id="main-footer">
-        Footer
+        This is the footer of the to do list.
     </footer>
